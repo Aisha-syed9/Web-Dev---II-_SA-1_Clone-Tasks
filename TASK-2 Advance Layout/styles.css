@@ -109,7 +109,6 @@ main {
      object-fit: fill;
 border-top-right-radius: 20px;
 border-top-left-radius: 20px;
-border-bottom-left-radius: 20px;
 }
 .film-box-1 {
   grid-area: movie1;
