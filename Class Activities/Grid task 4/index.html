@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Tasks</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Web Development Tasks</h1>
+        <nav>
+            <ul>
+                <li><a href="#two-column-layout">Two-Column Layout</a></li>
+                <li><a href="#photo-grid">Responsive Photo Grid</a></li>
+                <li><a href="#dashboard-layout">Dashboard Layout</a></li>
+                <li><a href="#product-page">Product Page</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Two-Column Layout Section -->
+    <section id="two-column-layout" class="task-section">
+        <h2>1. Two-Column Layout</h2>
+        <div class="two-column-grid">
+            <aside class="sidebar">Sidebar Content</aside>
+            <main class="main-content">Main Content Area</main>
+        </div>
+    </section>
+
+    <!-- Responsive Photo Grid Section -->
+    <section id="photo-grid" class="task-section">
+        <h2>2. Responsive Photo Grid</h2>
+        <div class="photo-grid">
+            <img src="images/image1.jpg" alt="Image 1">
+            <img src="images/image2.jpeg" alt="Image 2">
+            <img src="images/image3.jpeg" alt="Image 3">
+            <img src="images/image4.jpg" alt="Image 4">
+            <img src="images/image5.jpeg" alt="Image 5">
+            <img src="images/image6.jpg" alt="Image 6">
+        </div>
+    </section>
+
+    <!-- Dashboard Layout Section -->
+    <section id="dashboard-layout" class="task-section">
+        <h2>3. Dashboard Layout</h2>
+        <div class="dashboard-layout">
+            <header class="dashboard-header">Dashboard Header</header>
+            <aside class="dashboard-sidebar">Sidebar</aside>
+            <main class="dashboard-main">
+                <div class="widget statistics">Statistics</div>
+                <div class="widget recent-activity">Recent Activity</div>
+                <div class="widget notifications">Notifications</div>
+            </main>
+        </div>
+    </section>
+
+    <!-- Product Page Layout Section -->
+    <section id="product-page" class="task-section">
+        <h2>4. Product Page</h2>
+        <div class="product-page">
+            <div class="product-image">
+                <img src="images/laptop.jpeg" alt="Product Image">
+            </div>
+            <div class="product-details">
+                <h3>Apple MacBook Pro 14-inch (2023)</h3>
+                <p class="price">$6,499.00</p>
+                <p>Description: Apple M3 chip with 8-core CPU, 10-core GPU, 16-core Neural Engine...</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Web Development Tasks</p>
+    </footer>
+
+</body>
+</html>
+
+
+                 <!-- CSS Grid Quiz Section -->
+          <section id="quiz" class="section">
+            <h2>5. CSS Grid Quiz</h2>
+            <div id="quiz-container">
+                <div class="quiz-question" id="question-1">
+                    <p>CSS Grid Layout is a specification of which language?</p>
+                    <div class="quiz-answers">
+                        <button onclick="checkAnswer(this, 1, false)">HTML</button>
+                        <button onclick="checkAnswer(this, 1, true)">CSS</button>
+                        <button onclick="checkAnswer(this, 1, false)">JavaScript</button>
+                        <button onclick="checkAnswer(this, 1, false)">PHP</button>
+                    </div>
+                </div>
+
+                <div class="quiz-question" id="question-2" style="display: none;">
+                    <p>What property is used to create a grid?</p>
+                    <div class="quiz-answers">
+                        <button onclick="checkAnswer(this, 2, false)">position</button>
+                        <button onclick="checkAnswer(this, 2, true)">display</button>
+                        <button onclick="checkAnswer(this, 2, false)">grid</button>
+                        <button onclick="checkAnswer(this, 2, false)">transform</button>
+                    </div>
+                </div>
+
+                <div class="quiz-question" id="question-3" style="display: none;">
+                    <p>What property exists in Grid Layout?</p>
+                    <div class="quiz-answers">
+                        <button onclick="checkAnswer(this, 3, true)">grid-auto-rows</button>
+                        <button onclick="checkAnswer(this, 3, false)">grid-auto-reverse</button>
+                        <button onclick="checkAnswer(this, 3, false)">grid-auto-preminger</button>
+                        <button onclick="checkAnswer(this, 3, false)">grid-zli</button>
+                    </div>
+                </div>
+
+                <div class="quiz-question" id="question-4" style="display: none;">
+                    <p>What value exists in Grid Layout?</p>
+                    <div class="quiz-answers">
+                        <button onclick="checkAnswer(this, 4, false)">display: ingrid</button>
+                        <button onclick="checkAnswer(this, 4, true)">display: inline-grid</button>
+                        <button onclick="checkAnswer(this, 4, false)">display: hagrid</button>
+                        <button onclick="checkAnswer(this, 4, false)">display: hagrid</button>
+                    </div>
+                </div>
+
+                <div class="quiz-question" id="question-5" style="display: none;">
+                    <p>What property do gutters add?</p>
+                    <div class="quiz-answers">
+                        <button onclick="checkAnswer(this, 5, true)">gap</button>
+                        <button onclick="checkAnswer(this, 5, false)">nice</button>
+                        <button onclick="checkAnswer(this, 5, false)">valence</button>
+                        <button onclick="checkAnswer(this, 5, false)">sisteron</button>
+                    </div>
+                </div>
+
+                <!-- Wrong answer message -->
+                <div id="wrong-answer" style="display: none; color: red; margin-top: 20px;">
+                    <p>Wrong answer, try again!</p>
+                </div>
+            </div>
+        </section>
+
+
+  
+
+  <script>
+      function checkAnswer(button, questionNumber, isCorrect) {
+          const nextQuestion = document.getElementById(`question-${questionNumber + 1}`);
+          const currentQuestion = document.getElementById(`question-${questionNumber}`);
+          const wrongMessage = document.getElementById("wrong-answer");
+
+          if (isCorrect) {
+              // Hide current question and wrong answer message
+              currentQuestion.style.display = "none";
+              wrongMessage.style.display = "none";
+
+              // Show the next question if it exists
+              if (nextQuestion) {
+                  nextQuestion.style.display = "block";
+              } else {
+                  alert("Quiz complete! Well done.");
+              }
+          } else {
+              // Show wrong answer message
+              wrongMessage.style.display = "block";
+          }
+      }
+
+      function deleteQuestion(questionNumber) {
+    const questionDiv = document.getElementById(`question-${questionNumber}`);
+    questionDiv.style.display = 'none'; // Hides the question
+}
+
+  </script>
+
+<footer class="footer">
+      <p>&copy; 2024 My Grid Tasks Website</p>
+  </footer>
+
+</body>
+</html>

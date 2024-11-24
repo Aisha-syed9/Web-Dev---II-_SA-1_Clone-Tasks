@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List - Flexbox</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="flexbox layout.html">Home</a></li>
+            <li><a href="card.html">Card Design</a></li>
+            <li><a href="Gallery.html">Image Gallery</a></li>
+            <li><a href="quiz.html">Flexbox Quiz</a></li>
+            <li><a href="toDoList.html">To-Do List</a></li>
+        </ul>
+    </nav>
+
+    <!-- To-Do List Section -->
+    <section id="todo" class="section">
+        <h2>My To-Do List</h2>
+        <div class="todo-list">
+            <div class="todo-item">
+                <input type="checkbox" class="checkbox">
+                <label>Learn Flexbox</label>
+                <button class="delete-btn">Delete</button>
+            </div>
+            <div class="todo-item">
+                <input type="checkbox" class="checkbox">
+                <label>Build a creative website</label>
+                <button class="delete-btn">Delete</button>
+            </div>
+            <div class="todo-item">
+                <input type="checkbox" class="checkbox">
+                <label>Finish homework</label>
+                <button class="delete-btn">Delete</button>
+            </div>
+            <div class="todo-item">
+                <input type="checkbox" class="checkbox">
+                <label>Practice JavaScript</label>
+                <button class="delete-btn">Delete</button>
+            </div>
+            <div class="todo-item">
+                <input type="checkbox" class="checkbox">
+                <label>Self study for 3 hours</label>
+                <button class="delete-btn">Delete</button>
+            </div>
+            <div class="todo-item">
+                <input type="checkbox" class="checkbox">
+                <label>Watch a tutorial on Git</label>
+                <button class="delete-btn">Delete</button>
+            </div>
+        </div>
+        <!-- Input field to add new task -->
+        <div class="add-task">
+            <input type="text" id="new-task" placeholder="Add a new task...">
+            <button id="add-task-btn">Add Task</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>Web Dev Task 2 2024</p>
+    </footer>
+
+    <script>
+        // JavaScript to delete task
+        const deleteBtns = document.querySelectorAll('.delete-btn');
+        deleteBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.parentElement.remove();
+            });
+        });
+
+        // Add a new task
+        const addTaskBtn = document.getElementById('add-task-btn');
+        const newTaskInput = document.getElementById('new-task');
+        const todoList = document.querySelector('.todo-list');
+
+        addTaskBtn.addEventListener('click', function() {
+            const newTask = newTaskInput.value.trim();
+            if (newTask !== '') {
+                const taskItem = document.createElement('div');
+                taskItem.classList.add('todo-item');
+                taskItem.innerHTML = `
+                    <input type="checkbox" class="checkbox">
+                    <label>${newTask}</label>
+                    <button class="delete-btn">Delete</button>
+                `;
+                todoList.appendChild(taskItem);
+                newTaskInput.value = '';
+
+                // Enable delete for new tasks
+                taskItem.querySelector('.delete-btn').addEventListener('click', function() {
+                    this.parentElement.remove();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

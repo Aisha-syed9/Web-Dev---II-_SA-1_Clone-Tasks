@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Centered Image Grid</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- Top row with 4 images -->
+            <div class="item">
+                <img src="1.jpg" alt="Image 1">
+                <p>CALL OF DUTY <br> BLACK OPS <br>COLD WAR</p>
+            </div>
+            <div class="item">
+                <img src="2.jpg" alt="Image 2">
+                <p>BLACK OPS 2</p>
+            </div>
+            <div class="item">
+                <img src="3.jpg" alt="Image 3">
+                <p>MODERN WARFARE 3</p>
+            </div>
+            <div class="item">
+                <img src="4.jpg" alt="Image 4">
+                <p>CALL OF DUTY <br> MOBLIE</p>
+            </div>
+        </div>
+        <div class="row">
+            <!-- Bottom row with 4 images -->
+            <div class="item">
+                <img src="5.jpg" alt="Image 5">
+                <p>MODERN WARFARE 2</p>
+            </div>
+            <div class="item">
+                <img src="6.jpg" alt="Image 6">
+                <p>CALL OF DUTY <br> WW2</p>
+            </div>
+            <div class="item">
+                <img src="7.jpg" alt="Image 7">
+                <p>CALL OF DUTY <br> MODERN WARFARE 4</p>
+            </div>
+            <div class="item">
+                <img src="8.jpg" alt="Image 8">
+                <p>CALL OF DUTY <br> MODERN WARFARE <br>MOBLIE</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.querySelectorAll('.item').forEach((item, index) => {
+            item.style.setProperty('--delay', `${index * 0.1}s`);
+        });
+    </script>
+</body>
+</html>

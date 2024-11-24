@@ -1,0 +1,288 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+nav {
+    background-color: #024e20;
+    padding: 1rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+nav a:hover {
+    background-color: #575757;
+    border-radius: 4px;
+}
+
+/* Home Section */
+#home {
+    position: relative;
+    height: 100vh;
+    background: url('images/background.jpg') no-repeat center center/cover;
+}
+
+.header-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.animated-header {
+    font-size: 4rem;
+    color: white;
+    animation: fadeIn 3s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Section Styling */
+.section {
+    padding: 70px;
+    text-align: center;
+    margin: 30px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #01230e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    gap: 20px; /* Add spacing between elements */
+}
+
+.card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.card button {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #575757;
+}
+
+/* Image Gallery */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.gallery img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Quiz Section */
+.quiz {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.quiz-question {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.quiz-answers {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.quiz-answers button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s; /* Hover effect */
+}
+
+.quiz-answers button:hover {
+    background-color: #575757;
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section h2 {
+    animation: fadeIn 1s ease-in-out;
+}
+
+.quiz-question, .quiz-answers button {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* To-Do Section Styling */
+#todo {
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 30px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #428f61;
+}
+
+.todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 10px;
+    color: black;
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.todo-item:hover {
+    background-color: #eef4f7;
+}
+
+.todo-item input[type="checkbox"] {
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.todo-item label {
+    font-size: 1.2rem;
+    flex: 1;
+    margin-left: 20px;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: darkred;
+}
+
+/* Add Task Section */
+.add-task {
+    margin-top: 30px;
+}
+
+.add-task input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#add-task-btn {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #024e20;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#add-task-btn:hover {
+    background-color: #575757;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+#wrong-answer {
+    font-size: 1.2rem;
+    font-weight: bold;
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-10px); }
+    40%, 80% { transform: translateX(10px); }
+}

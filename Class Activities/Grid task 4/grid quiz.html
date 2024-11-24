@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Quiz - Flexbox </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Grid Layout</a></li>
+            <li><a href="grid.html">Grid Layout</a></li>
+            <li><a href="photo grid.html">Responsive Photo Grid</a></li>
+            <li><a href="interface.html">Dashboard Interface</a></li>
+            <li><a href="product page.html">Product Page</a></li>
+            <li><a href="grid quiz.html"></a>CSS Grid Quiz</li>
+        </ul>
+    </nav>
+
+    <!-- Flexbox Quiz Section -->
+    <section id="quiz" class="section">
+        <h2>Flexbox Quiz</h2>
+        <div id="quiz-container">
+            <div class="quiz-question" id="question-1">
+                <p>CSS Grid Layout is a specification of which language? </p>
+                <div class="quiz-answers">
+                    <button onclick="checkAnswer(this, 1, false)">HTML</button>
+                    <button onclick="checkAnswer(this, 1, true)">CSS</button>
+                    <button onclick="checkAnswer(this, 1, false)">JavaScript</button>
+                    <button onclick="checkAnswer(this, 1, false)">PHP</button>
+                </div>
+            </div>
+
+            <div class="quiz-question" id="question-2" style="display: none;">
+                <p>What property is used to create a grid?</p>
+                <div class="quiz-answers">
+                    <button onclick="checkAnswer(this, 2, false)">position</button>
+                    <button onclick="checkAnswer(this, 2, true)">display</button>
+                    <button onclick="checkAnswer(this, 2, false)">grid</button>
+                    <button onclick="checkAnswer(this, 2, false)">transform<</button>
+                </div>
+            </div>
+
+            <div class="quiz-question" id="question-3" style="display: none;">
+                <p>What property exists in Grid Layout?</p>
+                <div class="quiz-answers">
+                    <button onclick="checkAnswer(this, 3, true)">grid-auto-rows</button>
+                    <button onclick="checkAnswer(this, 3, false)">grid-auto-reverse</button>
+                    <button onclick="checkAnswer(this, 3, false)">grid-auto-preminger</button>
+                    <button onclick="checkAnswer(this, 3, false)">grid-zli</button>
+                </div>
+            </div>
+
+            <div class="quiz-question" id="question-4" style="display: none;">
+                <p> What value exists in Grid Layout?</p>
+                <div class="quiz-answers">
+                    <button onclick="checkAnswer(this, 4, false)">display: ingrid</button>
+                    <button onclick="checkAnswer(this, 4, true)">display: inline-grid</button>
+                    <button onclick="checkAnswer(this, 4, false)">display: hagrid</button>
+                    <button onclick="checkAnswer(this, 4, false)">display: hagrid</button>
+                </div>
+            </div>
+
+            <div class="quiz-question" id="question-5" style="display: none;">
+                <p>What property does gutters add?</p>
+                <div class="quiz-answers">
+                    <button onclick="checkAnswer(this, 5, true)">gap</button>
+                    <button onclick="checkAnswer(this, 5, false)">nice</button>
+                    <button onclick="checkAnswer(this, 5, false)">valence</button>
+                    <button onclick="checkAnswer(this, 5, false)">sisteron</button>
+                </div>
+            </div>
+
+            <!-- Wrong answer message -->
+            <div id="wrong-answer" style="display: none; color: red; margin-top: 20px;">
+                <p>Wrong answer, try again!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Web Dev Task 2 2024</p>
+    </footer>
+
+    <script>
+        function checkAnswer(button, questionNumber, isCorrect) {
+            const nextQuestion = document.getElementById(`question-${questionNumber + 1}`);
+            const currentQuestion = document.getElementById(`question-${questionNumber}`);
+            const wrongMessage = document.getElementById("wrong-answer");
+
+            if (isCorrect) {
+                // Hide current question and wrong answer message
+                currentQuestion.style.display = "none";
+                wrongMessage.style.display = "none";
+
+                // Show the next question if it exists
+                if (nextQuestion) {
+                    nextQuestion.style.display = "block";
+                } else {
+                    alert("Quiz complete! Well done.");
+                }
+            } else {
+                // Show wrong answer message
+                wrongMessage.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Basket - Weston's Chocolate Box</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div>Weston's Chocolate Box</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#build-box">Build Your Box</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="basket.html">Basket</a></li>
+                <li><a href="signin.html">Sign In</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+
+
+            </ul>
+        </nav>
+    </header>
+
+    <div class="basket-container">
+        <h2>Your Basket</h2>
+        <div id="basket-items"></div>
+        <div>Total Price: <span id="total-price">$0.00</span></div>
+        <button id="place-order" disabled>Place Order</button>
+    </div>
+
+    <script>
+        // Load basket from localStorage
+        const basket = JSON.parse(localStorage.getItem('basket')) || [];
+        const basketItemsContainer = document.getElementById('basket-items');
+        const totalPriceElement = document.getElementById('total-price');
+        const placeOrderButton = document.getElementById('place-order');
+
+        let totalPrice = 0;
+
+        basket.forEach(item => {
+            const itemElement = document.createElement('div');
+            itemElement.className = 'basket-item';
+            itemElement.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+            basketItemsContainer.appendChild(itemElement);
+            totalPrice += item.price;
+        });
+
+        totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
+        placeOrderButton.disabled = basket.length === 0; // Disable button if basket is empty
+
+        // Place Order Functionality
+        placeOrderButton.addEventListener('click', () => {
+            alert('Your order has been placed!');
+            localStorage.removeItem('basket'); // Clear basket on order
+            location.reload(); // Reload page to reflect changes
+        });
+    </script>
+</body>
+</html>

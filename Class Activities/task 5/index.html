@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weston's Chocolate Box</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <div>Weston's Chocolate Box</div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#build-box">Build Your Box</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="basket.html">Basket</a></li>
+                <li><a href="signin.html">Sign In</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <section class="main">
+        <div>
+            <h1>Create Your Own Chocolate Experience</h1>
+            <center>  <button>Start Building</button></center>
+        </div> 
+    </section>
+
+ <!-- Best Sellers Section -->
+<section class="section" id="products">
+    <center>
+        <h2>Our Best Sellers</h2>
+    </center>
+    <div class="product-grid">
+        <div class="product">
+            <img src="choco1.jpg" alt="Chocolate 1">
+            <button class="build-button" data-name="Chocolate 1" data-price="15">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="choco2.jpg" alt="Chocolate 2">
+            <button class="build-button" data-name="Chocolate 2" data-price="15">Add to Cart</button>
+        </div>
+        <div class="product">
+            <img src="choco3.jpg" alt="Chocolate 3">
+            <button class="build-button" data-name="Chocolate 3" data-price="15">Add to Cart</button>
+        </div>
+    </div>
+</section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About Us</h2>
+        <p>
+            Weston Chocolate is a distributor of premium chocolate, confectioneries, and specialty foods from around the world.<br>
+            We pride ourselves on exceptional products and customer service at competitive prices.<br>
+            Dedicated staff and premium offerings will meet your chocolate needs. Delivered to your door with care.<br>
+        </p>
+    </section>
+
+    <!-- Build Your Box Section -->
+    <section id="build-box" class="build-box">
+        <h2>Build Your Own Box</h2>
+        <p>Select an occasion to start building your chocolate box:</p>
+        <select id="occasion">
+            <option value="birthday">Birthday</option>
+            <option value="wedding">Wedding</option>
+            <option value="anniversary">Anniversary</option>
+            <option value="valentine">Valentine's Day</option>
+        </select>
+        <button class="start-building">Start Building</button>
+    </section>
+
+    <!-- Promotions Section -->
+    <section class="promotions">
+        <h2>Our Key Products & Deals</h2>
+        <div class="promotion-item">Buy 2 Get 1 Free on selected chocolates!</div>
+        <div class="promotion-item">20% off on wedding packages!</div>
+    </section>
+
+  
+
+    <footer class="footer">
+        <p>Contact Us: 111-1234 | Email: info@westonschocolate.com</p>
+    </footer>
+<script>// Add Event Listener to all "Add to Cart" buttons
+    const addToCartButtons = document.querySelectorAll('.build-button');
+    
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const productName = button.getAttribute('data-name');
+            const productPrice = parseFloat(button.getAttribute('data-price'));
+            
+            // Create a basket array in localStorage if it doesn't exist
+            const basket = JSON.parse(localStorage.getItem('basket')) || [];
+    
+            // Add the selected product to the basket
+            basket.push({ name: productName, price: productPrice });
+    
+            // Save updated basket back to localStorage
+            localStorage.setItem('basket', JSON.stringify(basket));
+    
+            alert(`${productName} has been added to your cart!`);
+        });
+    });
+    </script>
+</body>
+</html>

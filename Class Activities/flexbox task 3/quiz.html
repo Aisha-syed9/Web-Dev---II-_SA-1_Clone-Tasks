@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Quiz - Flexbox </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="flexbox layout.html">Home</a></li>
+            <li><a href="card.html">Card Design</a></li>
+            <li><a href="Gallery.html">Image Gallery</a></li>
+            <li><a href="quiz.html">Flexbox Quiz</a></li>
+            <li><a href="toDoList.html">To-Do List</a></li>
+        </ul>
+    </nav>
+
+    <!-- Flexbox Quiz Section -->
+    <section id="quiz" class="section">
+        <h2>Flexbox Quiz</h2>
+        <div id="quiz-container">
+            <div class="quiz-question" id="question-1">
+                <p>What does HTML stand for?</p>
+                <div class="quiz-answers">
+                    <button onclick="checkAnswer(this, 1, false)">Home Tool Markup Language</button>
+                    <button onclick="checkAnswer(this, 1, false)">Hyperlinks and Text Markup Language</button>
+                    <button onclick="checkAnswer(this, 1, true)">Hyper Text Markup Language</button>
+                    <button onclick="checkAnswer(this, 1, false)">Hyper Tool Machine Language</button>
+                </div>
+            </div>
+
+            <div class="quiz-question" id="question-2" style="display: none;">
+                <p>Who is making the Web standards?</p>
+                <div class="quiz-answers">
+                    <button onclick="checkAnswer(this, 2, false)">Mozilla</button>
+                    <button onclick="checkAnswer(this, 2, true)">The World Wide Web Consortium</button>
+                    <button onclick="checkAnswer(this, 2, false)">Google</button>
+                    <button onclick="checkAnswer(this, 2, false)">Microsoft</button>
+                </div>
+            </div>
+
+            <div class="quiz-question" id="question-3" style="display: none;">
+                <p>Choose the correct HTML element for the largest heading:</p>
+                <div class="quiz-answers">
+                    <button onclick="checkAnswer(this, 3, true)">&lt;h1&gt;</button>
+                    <button onclick="checkAnswer(this, 3, false)">&lt;h3&gt;</button>
+                    <button onclick="checkAnswer(this, 3, false)">&lt;h4&gt;</button>
+                    <button onclick="checkAnswer(this, 3, false)">&lt;h6&gt;</button>
+                </div>
+            </div>
+
+            <div class="quiz-question" id="question-4" style="display: none;">
+                <p>What is the correct HTML element for inserting a line break?</p>
+                <div class="quiz-answers">
+                    <button onclick="checkAnswer(this, 4, false)">&lt;br&gt;</button>
+                    <button onclick="checkAnswer(this, 4, true)">&lt;break&gt;</button>
+                    <button onclick="checkAnswer(this, 4, false)">&lt;lb&gt;</button>
+                    <button onclick="checkAnswer(this, 4, false)">&lt;line&gt;</button>
+                </div>
+            </div>
+
+            <div class="quiz-question" id="question-5" style="display: none;">
+                <p>What is the correct HTML for adding a background color?</p>
+                <div class="quiz-answers">
+                    <button onclick="checkAnswer(this, 5, false)">&lt;body bg="yellow"&gt;</button>
+                    <button onclick="checkAnswer(this, 5, true)">&lt;body style="background-color:yellow;"&gt;</button>
+                    <button onclick="checkAnswer(this, 5, false)">&lt;background&gt;yellow&lt;/background&gt;</button>
+                    <button onclick="checkAnswer(this, 5, false)">&lt;bg&gt;yellow&lt;/bg&gt;</button>
+                </div>
+            </div>
+
+            <!-- Wrong answer message -->
+            <div id="wrong-answer" style="display: none; color: red; margin-top: 20px;">
+                <p>Wrong answer, try again!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Web Dev Task 2 2024</p>
+    </footer>
+
+    <script>
+        function checkAnswer(button, questionNumber, isCorrect) {
+            const nextQuestion = document.getElementById(`question-${questionNumber + 1}`);
+            const currentQuestion = document.getElementById(`question-${questionNumber}`);
+            const wrongMessage = document.getElementById("wrong-answer");
+
+            if (isCorrect) {
+                // Hide current question and wrong answer message
+                currentQuestion.style.display = "none";
+                wrongMessage.style.display = "none";
+
+                // Show the next question if it exists
+                if (nextQuestion) {
+                    nextQuestion.style.display = "block";
+                } else {
+                    alert("Quiz complete! Well done.");
+                }
+            } else {
+                // Show wrong answer message
+                wrongMessage.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
